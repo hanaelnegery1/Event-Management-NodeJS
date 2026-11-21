@@ -1,11 +1,18 @@
 <%- include("partials/header") %>
 
-<h1>Mawid</h1>
-
-<% if (user) { %>
-  <p>Welcome, <%= user.name %>! <a href="/dashboard">Go to your dashboard</a></p>
-<% } else { %>
-  <p>Create events, share a link, and collect RSVPs with a seat cap.</p>
-<% } %>
+<section class="home-card">
+  <div class="eyebrow">Simple event management</div>
+  <h1>Bring people together.</h1>
+  <% if (user) { %>
+    <p class="hero-text">Welcome back, <strong><%= user.name %></strong>. Your events and registrations are ready.</p>
+    <a class="primary-button" href="/dashboard">Go to your dashboard</a>
+  <% } else { %>
+    <p class="hero-text">Create events, share a link, and collect RSVPs with a seat cap.</p>
+    <div class="hero-actions">
+      <a class="primary-button" href="/signup">Create an account</a>
+      <a class="secondary-button" href="/login">Log in</a>
+    </div>
+  <% } %>
+</section>
 
 <%- include("partials/footer") %>

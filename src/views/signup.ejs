@@ -1,22 +1,30 @@
 <%- include("partials/header") %>
 
-<h1>Sign up</h1>
+<section class="auth-card">
+  <div class="eyebrow">Get started</div>
+  <h1>Create an account</h1>
 
-<% if (error) { %>
-  <p><%= error %></p>
-<% } %>
+  <% if (error) { %>
+    <p class="error-message"><%= error %></p>
+  <% } %>
 
-<form action="/signup" method="POST">
-  <div>
-    <label>Name: <input type="text" name="name" required></label>
-  </div>
-  <div>
-    <label>Email: <input type="email" name="email" required></label>
-  </div>
-  <div>
-    <label>Password: <input type="password" name="password" minlength="8" required></label>
-  </div>
-  <button type="submit">Sign up</button>
-</form>
+  <form action="/signup" method="POST" class="auth-form">
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your name" required>
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" placeholder="you@example.com" required>
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" minlength="8" placeholder="At least 8 characters" required>
+    </label>
+    <button class="primary-button" type="submit">Sign up</button>
+  </form>
+
+  <p class="auth-switch">Already have an account? <a href="/login">Log in</a></p>
+</section>
 
 <%- include("partials/footer") %>
