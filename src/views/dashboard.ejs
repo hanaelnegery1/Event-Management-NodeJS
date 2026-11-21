@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+
+<section class="event-page">
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Organizer dashboard</div>
+      <h1>My events</h1>
+    </div>
+    <a class="primary-button" href="/events/new">Create event</a>
+  </div>
+
+  <% if (events.length === 0) { %>
+    <div class="empty-state">
+      <h2>No events yet</h2>
+      <p>Create your first event and share its public registration link.</p>
+    </div>
+  <% } else { %>
+    <div class="event-grid">
+      <% events.forEach(function(event) { %>
+        <article class="event-card">
+          <div class="event-card-top">
+            <h2><%= event.title %></h2>
+            <span class="count-badge"><%= event.registered %>/<%= event.capacity %></span>
+          </div>
+          <% if (event.location) { %><p class="event-meta"><%= event.location %></p><% } %>
+          <p class="event-meta"><%= new Date(event.startsAt).toLocaleString() %></p>
+          <a class="public-link" href="<%= appUrl %>/e/<%= event.slug %>"><%= appUrl %>/e/<%= event.slug %></a>
+          <div class="card-actions">
+            <a class="secondary-button" href="/e/<%= event.slug %>" target="_blank">View public page</a>
+            <a class="primary-button" href="/events/<%= event.id %>/attendees">View attendees</a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>

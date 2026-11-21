@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+<section class="auth-card">
+  <div class="eyebrow">New event</div>
+  <h1>Create an event</h1>
+  <% if (error) { %><p class="error-message"><%= error %></p><% } %>
+  <form class="auth-form" action="/events" method="POST">
+    <label>Title
+      <input type="text" name="title" maxlength="200" required>
+    </label>
+    <label>Location
+      <input type="text" name="location" maxlength="255">
+    </label>
+    <label>Start date and time
+      <input type="datetime-local" name="startsAt" required>
+    </label>
+    <label>Capacity
+      <input type="number" name="capacity" min="1" step="1" required>
+    </label>
+    <button class="primary-button" type="submit">Create event</button>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

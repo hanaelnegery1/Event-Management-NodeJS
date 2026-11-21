@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<section class="event-page">
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Attendee list</div>
+      <h1><%= event.title %></h1>
+    </div>
+    <a class="secondary-button" href="/dashboard">Back to dashboard</a>
+  </div>
+
+  <div class="table-card">
+    <% if (attendees.length === 0) { %>
+      <p class="empty-inline">No registrations yet.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Registered</th></tr>
+        </thead>
+        <tbody>
+          <% attendees.forEach(function(attendee) { %>
+            <tr>
+              <td><%= attendee.name %></td>
+              <td><%= attendee.email %></td>
+              <td><%= new Date(attendee.createdAt).toLocaleString() %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

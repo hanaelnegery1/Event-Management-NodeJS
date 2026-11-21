@@ -12,7 +12,10 @@ function makeSlug(title) {
 
 async function dashboard(req, res) {
   const events = await Event.findByOrganizer(req.session.user.id);
-  res.render("dashboard", { events });
+  res.render("dashboard", {
+    events,
+    appUrl: (process.env.APP_URL || "http://localhost:3000").replace(/\/$/, ""),
+  });
 }
 
 function showNew(req, res) {
@@ -25,10 +28,11 @@ async function create(req, res) {
   const startsAt = req.body.startsAt;
   const capacity = Number(req.body.capacity);
 
-  if (!title || !startsAt || !(capacity >= 1)) {
+  const startDate = new Date(startsAt);
+  if (!title || !startsAt || !Number.isInteger(capacity) || capacity < 1 || Number.isNaN(startDate.getTime())) {
     return res
       .status(400)
-      .render("new-event", { error: "Title, date and capacity are required." });
+      .render("new-event", { error: "Title, date and a whole-number capacity are required." });
   }
 
   await Event.create(
@@ -36,7 +40,7 @@ async function create(req, res) {
     makeSlug(title),
     title,
     location || null,
-    new Date(startsAt),
+    startDate,
     capacity
   );
   res.redirect("/dashboard");

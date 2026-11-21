@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+
+<section class="auth-card confirmed-card">
+  <div class="success-mark">✓</div>
+  <div class="eyebrow">Registration confirmed</div>
+  <h1>You are on the list</h1>
+  <p class="hero-text">Your place at <strong><%= event.title %></strong> is reserved.</p>
+  <a class="secondary-button" href="/e/<%= event.slug %>">View event</a>
+</section>
+
+<%- include("partials/footer") %>

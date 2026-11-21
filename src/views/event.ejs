@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<section class="auth-card registration-card">
+  <div class="eyebrow">Public registration</div>
+  <h1><%= event.title %></h1>
+  <% if (event.location) { %><p class="event-detail"><strong>Where:</strong> <%= event.location %></p><% } %>
+  <p class="event-detail"><strong>When:</strong> <%= new Date(event.startsAt).toLocaleString() %></p>
+  <p class="event-detail"><strong>Availability:</strong> <%= event.registered %>/<%= event.capacity %> registered</p>
+
+  <% if (error) { %><p class="error-message"><%= error %></p><% } %>
+  <% if (event.registered >= event.capacity) { %>
+    <p class="full-message">This event is currently full.</p>
+  <% } else { %>
+    <form class="auth-form" action="/e/<%= event.slug %>/register" method="POST">
+      <label>Name
+        <input type="text" name="name" maxlength="100" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" maxlength="255" required>
+      </label>
+      <button class="primary-button" type="submit">Register</button>
+    </form>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>
