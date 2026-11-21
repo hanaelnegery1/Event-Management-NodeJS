@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./public/favicon.svg" width="96" alt="Event Management System logo">
+</div>
+
 # Event Management System
 
 A Node.js event management application that allows organizers to create capacity-limited events, share public registration links, and view their attendee lists.
