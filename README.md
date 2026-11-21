@@ -16,21 +16,33 @@ A Node.js event management application that allows organizers to create capacity
 
 ## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| Node.js | JavaScript runtime |
-| Express 5 | HTTP server, routing, and middleware |
-| EJS | Server-rendered views |
-| Prisma ORM | Database access and migrations |
-| MySQL / TiDB | Relational data storage |
-| `@prisma/adapter-mariadb` | Prisma connection to the MySQL-compatible database |
-| `express-session` | User session management |
-| Prisma Session Store | Database-backed session storage |
-| bcrypt | Password hashing |
-| Helmet | HTTP security headers |
-| dotenv | Environment variable loading |
-| Nodemon | Development server auto-reload |
-| JavaScript Fetch API | Sending concurrent race-test requests |
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=8D1F2D" alt="EJS">
+  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/TiDB-FF6B6B?style=for-the-badge&logo=pingcap&logoColor=white" alt="TiDB">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Helmet-4A90E2?style=for-the-badge&logo=security&logoColor=white" alt="Helmet">
+  <img src="https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white" alt="Nodemon">
+  <img src="https://img.shields.io/badge/dotenv-ECD53F?style=for-the-badge&logo=dotenv&logoColor=black" alt="dotenv">
+</p>
+
+- **Express 5** - HTTP server, routing, and middleware
+- **EJS** - Server-rendered interface
+- **Prisma ORM** - Database access and migrations
+- **MySQL / TiDB** - Relational database storage
+- **Prisma MariaDB Adapter** - MySQL-compatible Prisma connection
+- **Express Session + Prisma Store** - Database-backed user sessions
+- **bcrypt** - Password hashing
+- **Helmet** - HTTP security headers
+- **dotenv** - Environment variable loading
+- **Nodemon** - Development server reload
+- **Fetch API** - Concurrent registration testing
 
 ## Project Structure
 
@@ -81,6 +93,10 @@ Stores an attendee's name and email. A compound unique constraint on `eventId` a
 6. Anyone with the link can register using a name and email.
 7. Select **View attendees** to see registrations for an event.
 
-## Capacity and Race Protection
+## Event Management System
 
-Registration uses a Prisma transaction and locks the event row before counting registrations:
+Built with Node.js, Express, Prisma, and MySQL / TiDB
+
+<sub>Reliable event capacity • Secure registration • Concurrent-safe processing</sub>
+
+</div>
